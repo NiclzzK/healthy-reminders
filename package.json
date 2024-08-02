@@ -1,0 +1,15 @@
+{
+  "name": "healthy-reminders",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "NiclzzK",
+  "license": "MIT",
+  "description": "An application to remind users to take healthy breaks.",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  }
+}
