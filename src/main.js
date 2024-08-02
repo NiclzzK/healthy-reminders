@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Notification, ipcMain, Tray, Menu } = require('electron');
+const { app, BrowserWindow, Notification, ipcMain, Tray, Menu, nativeTheme } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -32,6 +32,10 @@ function createWindow() {
         }
         return false;
     });
+
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.send('theme-changed', nativeTheme.shouldUseDarkColors);
+    });
 }
 
 app.whenReady().then(() => {
@@ -45,6 +49,10 @@ app.whenReady().then(() => {
     });
 
     startReminders();
+
+    nativeTheme.on('updated', () => {
+        mainWindow.webContents.send('theme-changed', nativeTheme.shouldUseDarkColors);
+    });
 });
 
 app.on('window-all-closed', () => {

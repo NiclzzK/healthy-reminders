@@ -28,3 +28,11 @@ document.getElementById('saveSettings').addEventListener('click', () => {
         saveButton.innerText = "Save Settings";
     }, 2000);
 });
+
+window.electron.onThemeChanged((isDarkMode) => {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+});
