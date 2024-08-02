@@ -15,11 +15,11 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        show: false, // Fenster beim Start nicht anzeigen
+        show: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            nodeIntegration: false, // Node-Integration deaktivieren
-            contextIsolation: true, // Kontextisolation aktivieren
+            nodeIntegration: false,
+            contextIsolation: true,
         },
     });
 
@@ -43,7 +43,6 @@ app.whenReady().then(() => {
         }
     });
 
-    // Start reminder notifications
     startReminders();
 });
 
@@ -54,7 +53,7 @@ app.on('window-all-closed', () => {
 });
 
 function createTray() {
-    tray = new Tray(path.join(__dirname, 'trayIcon.png')); // Pfad zum Tray-Icon
+    tray = new Tray(path.join(__dirname, 'trayIcon.png'));
     const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Open Settings', click: function () {
@@ -113,6 +112,5 @@ function startReminders() {
 
 ipcMain.on('save-settings', (event, settings) => {
     reminderIntervals = settings;
-    // Restart reminders with new settings
     startReminders();
 });

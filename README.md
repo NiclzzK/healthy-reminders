@@ -44,6 +44,16 @@ The application will start in the background and display a tray icon. You can ac
 2. **Save Settings**: Adjust the intervals for each reminder and click "Save Settings".
 3. **Receive Notifications**: The application will send notifications at the configured intervals.
 
+## Download
+
+You can download the latest version of Healthy Reminders from the [Releases](https://github.com/NiclzzK/healthy-reminders/releases) page.
+
+### Installation
+
+1. Download the appropriate version for your operating system.
+2. Extract the downloaded ZIP file.
+3. Run the executable file (`HealthyReminders.exe`) to start the application.
+
 ## Development
 
 ### Project Structure

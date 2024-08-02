@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . HealthyReminders --platform=win32 --arch=x64 --out=release-builds --icon=trayIcon.ico --overwrite"
   },
   "keywords": [],
   "author": "NiclzzK",
   "license": "MIT",
   "description": "An application to remind users to take healthy breaks.",
   "devDependencies": {
-    "electron": "^31.3.1"
+    "electron": "^31.3.1",
+    "electron-packager": "^17.1.2"
   }
 }
