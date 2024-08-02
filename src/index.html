@@ -7,52 +7,120 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #F5F5F5;
             margin: 20px;
+            padding: 0;
         }
         h1 {
             color: #4CAF50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        p.description {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
         }
         .reminder {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .reminder label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        .reminder .icon {
+            margin-right: 10px;
         }
         .details {
             margin-top: 10px;
             font-size: 0.9em;
             color: #555;
         }
+        .slider-container {
+            display: flex;
+            align-items: center;
+        }
+        .slider-container input[type="range"] {
+            flex: 1;
+            margin-right: 10px;
+            accent-color: #4CAF50;
+        }
+        .slider-value {
+            width: 60px;
+            text-align: center;
+            color: #333333;
+        }
+        .save-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .save-button:hover {
+            background-color: #45A049;
+        }
     </style>
 </head>
 <body>
 <h1>Healthy Reminders</h1>
-<p>This application will remind you to take healthy breaks.</p>
+<p class="description">This application will remind you to take healthy breaks.</p>
 
 <div class="reminder">
-    <label for="standUpInterval">Stand up and move around (minutes):</label>
-    <input type="number" id="standUpInterval" value="60">
+    <label for="standUpInterval"><span class="icon">🚶</span>Stand up and move around:</label>
+    <div class="slider-container">
+        <input type="range" id="standUpInterval" min="10" max="120" value="60">
+        <span class="slider-value" id="standUpIntervalValue">60 min</span>
+    </div>
     <div class="details">Standing up and moving around helps to improve circulation and prevent stiffness. Try to stand up and walk around for a few minutes.</div>
 </div>
 <div class="reminder">
-    <label for="stretchInterval">Stretching exercises (minutes):</label>
-    <input type="number" id="stretchInterval" value="120">
+    <label for="stretchInterval"><span class="icon">🤸</span>Stretching exercises:</label>
+    <div class="slider-container">
+        <input type="range" id="stretchInterval" min="30" max="240" value="120">
+        <span class="slider-value" id="stretchIntervalValue">120 min</span>
+    </div>
     <div class="details">Stretching helps to relieve muscle tension and improve flexibility. Focus on stretching your back, neck, and legs.</div>
 </div>
 <div class="reminder">
-    <label for="eyeCareInterval">20-20-20 rule (minutes):</label>
-    <input type="number" id="eyeCareInterval" value="20">
+    <label for="eyeCareInterval"><span class="icon">👀</span>20-20-20 rule:</label>
+    <div class="slider-container">
+        <input type="range" id="eyeCareInterval" min="10" max="60" value="20">
+        <span class="slider-value" id="eyeCareIntervalValue">20 min</span>
+    </div>
     <div class="details">The 20-20-20 rule helps to reduce eye strain. Every 20 minutes, look at something 20 feet away for at least 20 seconds.</div>
 </div>
 <div class="reminder">
-    <label for="waterInterval">Drink water (minutes):</label>
-    <input type="number" id="waterInterval" value="90">
+    <label for="waterInterval"><span class="icon">💧</span>Drink water:</label>
+    <div class="slider-container">
+        <input type="range" id="waterInterval" min="30" max="180" value="90">
+        <span class="slider-value" id="waterIntervalValue">90 min</span>
+    </div>
     <div class="details">Staying hydrated is important for overall health. Aim to drink a glass of water every 90 minutes.</div>
 </div>
 <div class="reminder">
-    <label for="ergonomicCheckInterval">Ergonomic check (minutes):</label>
-    <input type="number" id="ergonomicCheckInterval" value="240">
+    <label for="ergonomicCheckInterval"><span class="icon">🪑</span>Ergonomic check:</label>
+    <div class="slider-container">
+        <input type="range" id="ergonomicCheckInterval" min="60" max="480" value="240">
+        <span class="slider-value" id="ergonomicCheckIntervalValue">240 min</span>
+    </div>
     <div class="details">An ergonomic setup helps to prevent strain and injury. Ensure your chair, desk, and monitor are set up correctly.</div>
 </div>
 
-<button id="saveSettings">Save Settings</button>
+<button class="save-button" id="saveSettings">Save Settings</button>
 
 <script src="renderer.js"></script>
 </body>

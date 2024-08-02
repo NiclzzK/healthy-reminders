@@ -1,3 +1,10 @@
+document.querySelectorAll('input[type="range"]').forEach(slider => {
+    slider.addEventListener('input', (event) => {
+        const id = event.target.id;
+        document.getElementById(id + 'Value').innerText = event.target.value + ' min';
+    });
+});
+
 document.getElementById('saveSettings').addEventListener('click', () => {
     const standUpInterval = document.getElementById('standUpInterval').value;
     const stretchInterval = document.getElementById('stretchInterval').value;
@@ -14,4 +21,10 @@ document.getElementById('saveSettings').addEventListener('click', () => {
     };
 
     window.electron.sendSettings(settings);
+
+    const saveButton = document.getElementById("saveSettings");
+    saveButton.innerText = "Settings Saved!";
+    setTimeout(() => {
+        saveButton.innerText = "Save Settings";
+    }, 2000);
 });
